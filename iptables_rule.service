@@ -1,0 +1,12 @@
+[Unit]
+Description=iptables_rule
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 30
+ExecStartPre=/opt/utm/tc/tc.sh
+ExecStartPre=/opt/utm/ipset/ipset.sh
+ExecStart=/opt/utm/iptables/iptables_rule.sh start
+
+[Install]
+WantedBy=multi-user.target
